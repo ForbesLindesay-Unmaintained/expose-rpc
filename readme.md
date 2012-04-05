@@ -69,6 +69,41 @@ app.exposeRPC('/user/:uid', function(rpc){
 
 ```
 
+Note that you must define your exposed RPC procedures before you define the route.
+
+e.g.
+
+```javascript
+
+/////////
+//Wrong//
+/////////
+
+app.get('/console', function(req,res){
+    res.render('console');
+});
+app.exposeRPC({log:function(msg,cb){
+    console.log(msg);
+    cb();
+}});
+
+///////////
+//Correct//
+///////////
+
+//It's fine to define the RPC object directly like this.
+app.exposeRPC({log:function(msg,cb){
+    console.log(msg);
+    cb();
+}});
+app.get('/console', function(req,res){
+    res.render('console');
+});
+
+
+```
+
+
 # Function Chaining
 
 You can chain functions, which is great for validation/authorisation.
