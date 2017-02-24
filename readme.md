@@ -2,6 +2,8 @@ A module to enable very simple connectionless RPC from client to server.  It is 
 
 # Installation
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ForbesLindesay/expose-rpc.svg)](https://greenkeeper.io/)
+
     npm install expose-rpc
 
 You must also install and enable express-expose
